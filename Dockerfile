@@ -138,7 +138,7 @@ while true; do
     -rw_timeout 15000000 \
     -thread_queue_size 1024 \
     -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 5 -reconnect_on_network_error 1 \
-    -headers "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\r\nReferer: http://nexusconnects.org/\r\nOrigin: http://nexusconnects.org\r\n" \
+    -headers "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\r\nReferer: https://mahsunsports15.xyz/\r\nOrigin: https://mahsunsports15.xyz\r\n" \
     -user_agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
     -referer "https://mahsunsports15.xyz/" \
     -probesize 10M -analyzeduration 10M \
