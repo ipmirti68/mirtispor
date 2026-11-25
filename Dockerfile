@@ -109,7 +109,8 @@ cp /app/live_index.html /app/live/index.html
 
 YAYIN="http://nexusconnects.org:80/play/live.php?mac=00:1B:79:47:72:00&stream=988851&extension=ts&play_token=i9P5KZaJhe"
 
-echo "MIRTI68 CANLI YAYIN"
+echo "MIRTI68 CANLI YAYIN - LOGOLU 480p"
+
 rm -f /tmp/logo1.jpg
 curl -fL -k --connect-timeout 10 --max-time 30 --retry 3 -o /tmp/logo1.jpg "https://raw.githubusercontent.com/ipmirti68/Logo/refs/heads/main/IMG-20261018-WA1513.jpg" || echo "[UYARI] Logo indirilemedi"
 
@@ -138,7 +139,7 @@ while true; do
     -probesize 10M -analyzeduration 10M \
     -i "$YAYIN" \
     -loop 1 -framerate 25 -i /tmp/logo1.jpg \
-   -filter_complex "[0:v]fps=25,scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2:color=black,format=yuv420p[base];[1:v]scale=160:-1[lg];[base][lg]overlay=W-w-35:25:eof_action=pass[v]" \
+    -filter_complex "[0:v]fps=25,scale=854:480:force_original_aspect_ratio=decrease,pad=854:480:(ow-iw)/2:(oh-ih)/2:color=black,format=yuv420p[base];[1:v]scale=110:-1[lg];[base][lg]overlay=W-w-35:25:eof_action=pass[v]" \
     -map "[v]" -map 0:a? \
     -max_muxing_queue_size 2048 \
     -fps_mode cfr \
@@ -148,14 +149,14 @@ while true; do
     -tune zerolatency \
     -profile:v main \
     -pix_fmt yuv420p \
-    -b:v 1400k \
-    -maxrate 1700k \
-    -bufsize 2800k \
+    -b:v 800k \
+    -maxrate 1000k \
+    -bufsize 1600k \
     -g 100 \
     -keyint_min 100 \
     -sc_threshold 0 \
     -c:a aac \
-    -b:a 96k \
+    -b:a 64k \
     -ar 44100 -ac 2 \
     -f hls \
     -hls_time 4 \
