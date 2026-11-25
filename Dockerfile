@@ -82,13 +82,13 @@ a { color:#4da3ff; display:inline-block; margin-top:15px; }
 <h2>MIRTI SPOR - CANLI YAYIN</h2>
 <video id="v" controls autoplay muted playsinline></video>
 <p><a href="cam0/index.m3u8">M3U8 YAYIN ADRESI</a></p>
-<div id="durum">Yayin baglantisi hazirlaniyor... 30sn tampon dolduruluyor</div>
+<div id="durum">Yayin baglantisi hazirlaniyor...</div>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <script>
 const video = document.getElementById('v');
 const durum = document.getElementById('durum');
 if (window.Hls && Hls.isSupported()) {
-  const hls = new Hls({ maxBufferLength: 60, maxMaxBufferLength: 120, liveSyncDurationCount: 5, liveMaxLatencyDurationCount: 10 });
+  const hls = new Hls({ maxBufferLength: 30, maxMaxBufferLength: 60, liveSyncDurationCount: 3 });
   hls.loadSource('cam0/index.m3u8');
   hls.attachMedia(video);
   hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(function(){}); });
@@ -107,11 +107,8 @@ set -u
 mkdir -p /app/live/cam0 /tmp
 cp /app/live_index.html /app/live/index.html
 
-YAYIN="https://css.d6e3ess6e065r5.help//hls/arda.m3u8"
 
-USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
-
-echo "MIRTI68 CANLI YAYIN - LOGOLU 480p - 30SN TAMPON"
+echo "MIRTI68 CANLI YAYIN - LOGOLU 480p"
 
 rm -f /tmp/logo1.jpg
 curl -fL -k --connect-timeout 10 --max-time 30 --retry 3 -o /tmp/logo1.jpg "https://raw.githubusercontent.com/ipmirti68/Logo/refs/heads/main/IMG-20261018-WA1513.jpg" || echo "[UYARI] Logo indirilemedi"
@@ -119,6 +116,11 @@ curl -fL -k --connect-timeout 10 --max-time 30 --retry 3 -o /tmp/logo1.jpg "http
 if ! ffmpeg -v error -i /tmp/logo1.jpg -frames:v 1 -f null - >/dev/null 2>&1; then
   ffmpeg -y -v error -f lavfi -i color=c=black:s=120x80 -frames:v 1 /tmp/logo1.jpg
 fi
+
+YAYIN="http://31.43.191.125:8080/VIP01361740328055349/dd5808c9dede/141357"
+REFERER=""
+ORIGIN=""
+USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 
 echo "[NGINX] Baslatiliyor..."
 nginx
@@ -132,12 +134,13 @@ while true; do
   BASLANGIC=$(date +%s)
 
   ffmpeg -hide_banner -loglevel warning \
-    -fflags +discardcorrupt+genpts+nobuffer \
+    -fflags +discardcorrupt+genpts \
     -rw_timeout 15000000 \
-    -thread_queue_size 4096 \
+    -thread_queue_size 1024 \
     -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 5 -reconnect_on_network_error 1 \
-    -headers "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\r\n" \
+    -headers "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\r\nReferer: https://mahsunsports15.xyz/\r\nOrigin: https://mahsunsports15.xyz\r\n" \
     -user_agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+    -referer "" \
     -probesize 10M -analyzeduration 10M \
     -i "$YAYIN" \
     -loop 1 -framerate 25 -i /tmp/logo1.jpg \
@@ -161,9 +164,9 @@ while true; do
     -b:a 64k \
     -ar 44100 -ac 2 \
     -f hls \
-    -hls_time 10 \
-    -hls_list_size 10 \
-    -hls_delete_threshold 10 \
+    -hls_time 4 \
+    -hls_list_size 8 \
+    -hls_delete_threshold 4 \
     -hls_allow_cache 0 \
     -hls_start_number_source epoch \
     -hls_flags delete_segments+independent_segments+program_date_time+temp_file \
