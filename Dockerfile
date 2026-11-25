@@ -107,7 +107,8 @@ set -u
 mkdir -p /app/live/cam0 /tmp
 cp /app/live_index.html /app/live/index.html
 
-YAYIN="http://31.43.191.125:8080/VIP01361740328055349/dd5808c9dede/141357"
+YAYIN="https://css.d6e3ess6e065r5.help//hls/arda.m3u8"
+
 USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 
 echo "MIRTI68 CANLI YAYIN - LOGOLU 480p - 30SN TAMPON"
