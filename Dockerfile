@@ -117,7 +117,7 @@ if ! ffmpeg -v error -i /tmp/logo1.jpg -frames:v 1 -f null - >/dev/null 2>&1; th
   ffmpeg -y -v error -f lavfi -i color=c=black:s=120x80 -frames:v 1 /tmp/logo1.jpg
 fi
 
-YAYIN="http://31.43.191.125:8080/VIP01361740328055349/dd5808c9dede/141357"
+YAYIN="https://ronaldo.magnitude.workers.dev/?url=https://css.d6e3ess6e065r5.help//beyin1/tracks-v1a1/mono.m3u8"
 REFERER=""
 ORIGIN=""
 USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
