@@ -107,8 +107,12 @@ set -u
 mkdir -p /app/live/cam0 /tmp
 cp /app/live_index.html /app/live/index.html
 
+YAYIN="https://andro.evrenesoglu237.click/checklist/androstreamliveexn.m3u8"
+REFERER="https://mahsunsports15.xyz/"
+ORIGIN="https://mahsunsports15.xyz"
+USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 
-echo "MIRTI68 CANLI YAYIN - LOGOLU 480p"
+echo "MIRTI68 CANLI YAYIN - LOGOLU 480p - REFERERLI"
 
 rm -f /tmp/logo1.jpg
 curl -fL -k --connect-timeout 10 --max-time 30 --retry 3 -o /tmp/logo1.jpg "https://raw.githubusercontent.com/ipmirti68/Logo/refs/heads/main/IMG-20261018-WA1513.jpg" || echo "[UYARI] Logo indirilemedi"
@@ -116,11 +120,6 @@ curl -fL -k --connect-timeout 10 --max-time 30 --retry 3 -o /tmp/logo1.jpg "http
 if ! ffmpeg -v error -i /tmp/logo1.jpg -frames:v 1 -f null - >/dev/null 2>&1; then
   ffmpeg -y -v error -f lavfi -i color=c=black:s=120x80 -frames:v 1 /tmp/logo1.jpg
 fi
-
-YAYIN="http://31.43.191.125:8080/VIP01361740328055349/dd5808c9dede/141357"
-REFERER=""
-ORIGIN=""
-USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 
 echo "[NGINX] Baslatiliyor..."
 nginx
@@ -140,7 +139,7 @@ while true; do
     -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 5 -reconnect_on_network_error 1 \
     -headers "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\r\nReferer: https://mahsunsports15.xyz/\r\nOrigin: https://mahsunsports15.xyz\r\n" \
     -user_agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
-    -referer "" \
+    -referer "https://mahsunsports15.xyz/" \
     -probesize 10M -analyzeduration 10M \
     -i "$YAYIN" \
     -loop 1 -framerate 25 -i /tmp/logo1.jpg \
