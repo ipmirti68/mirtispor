@@ -107,7 +107,6 @@ set -u
 mkdir -p /app/live/cam0 /tmp
 cp /app/live_index.html /app/live/index.html
 
-YAYIN="http://ekmek82.shop/live/adnan678/uBjabktvQP/1536246.m3u"
 
 echo "MIRTI68 CANLI YAYIN - LOGOLU 480p"
 
@@ -117,6 +116,11 @@ curl -fL -k --connect-timeout 10 --max-time 30 --retry 3 -o /tmp/logo1.jpg "http
 if ! ffmpeg -v error -i /tmp/logo1.jpg -frames:v 1 -f null - >/dev/null 2>&1; then
   ffmpeg -y -v error -f lavfi -i color=c=black:s=120x80 -frames:v 1 /tmp/logo1.jpg
 fi
+
+YAYIN="https://andro.evrenesoglu237.click/checklist/androstreamliveexn.m3u8"
+REFERER="https://mahsunsports15.xyz/"
+ORIGIN="https://mahsunsports15.xyz"
+USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 
 echo "[NGINX] Baslatiliyor..."
 nginx
@@ -134,8 +138,9 @@ while true; do
     -rw_timeout 15000000 \
     -thread_queue_size 1024 \
     -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 5 -reconnect_on_network_error 1 \
-    -headers "User-Agent: Mozilla/5.0\r\n" \
-    -user_agent "Mozilla/5.0" \
+    -headers "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\r\nReferer: http://nexusconnects.org/\r\nOrigin: http://nexusconnects.org\r\n" \
+    -user_agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+    -referer "https://mahsunsports15.xyz/" \
     -probesize 10M -analyzeduration 10M \
     -i "$YAYIN" \
     -loop 1 -framerate 25 -i /tmp/logo1.jpg \
