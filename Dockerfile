@@ -138,7 +138,7 @@ while true; do
     -probesize 10M -analyzeduration 10M \
     -i "$YAYIN" \
     -loop 1 -framerate 25 -i /tmp/logo1.jpg \
-    -filter_complex "[0:v]fps=25,scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2:color=black,format=yuv420p[base];[1:v]scale=160:-1[lg];[base][lg]overlay=W-w-35:25:eof_action=pass[v]" \
+   -filter_complex "[0:v]fps=25,scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2:color=black,format=yuv420p[base];[1:v]scale=160:-1[lg];[base][lg]overlay=W-w-35:25:eof_action=pass[v]" \
     -map "[v]" -map 0:a? \
     -max_muxing_queue_size 2048 \
     -fps_mode cfr \
