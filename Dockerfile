@@ -117,9 +117,9 @@ if ! ffmpeg -v error -i /tmp/logo1.jpg -frames:v 1 -f null - >/dev/null 2>&1; th
   ffmpeg -y -v error -f lavfi -i color=c=black:s=120x80 -frames:v 1 /tmp/logo1.jpg
 fi
 
-YAYIN="https://andro.evrenesoglu237.click/checklist/androstreamliveexn.m3u8"
-REFERER="https://mahsunsports15.xyz/"
-ORIGIN="https://mahsunsports15.xyz"
+YAYIN="http://31.43.191.125:8080/VIP01361740328055349/dd5808c9dede/141357"
+REFERER=""
+ORIGIN=""
 USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 
 echo "[NGINX] Baslatiliyor..."
@@ -140,7 +140,7 @@ while true; do
     -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 5 -reconnect_on_network_error 1 \
     -headers "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\r\nReferer: https://mahsunsports15.xyz/\r\nOrigin: https://mahsunsports15.xyz\r\n" \
     -user_agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
-    -referer "https://mahsunsports15.xyz/" \
+    -referer "" \
     -probesize 10M -analyzeduration 10M \
     -i "$YAYIN" \
     -loop 1 -framerate 25 -i /tmp/logo1.jpg \
