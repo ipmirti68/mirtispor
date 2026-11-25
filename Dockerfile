@@ -117,7 +117,7 @@ if ! ffmpeg -v error -i /tmp/logo1.jpg -frames:v 1 -f null - >/dev/null 2>&1; th
   ffmpeg -y -v error -f lavfi -i color=c=black:s=120x80 -frames:v 1 /tmp/logo1.jpg
 fi
 
-YAYIN="http://telif-atma-deathless-siker-adami-free-yayin.mywire.org/redom/packet/1.m3u8?v=aHR0cHM6Ly93d3cub2hhLnRvL29oYS10di9wbGF5LzIxMTM0NjIzOTg0M2RkZWRlOGZhYmM="
+YAYIN="http://31.43.191.125:8080/VIP01361740328055349/dd5808c9dede/141357"
 REFERER=""
 ORIGIN=""
 USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
