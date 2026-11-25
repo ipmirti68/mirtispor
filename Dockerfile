@@ -107,7 +107,7 @@ set -u
 mkdir -p /app/live/cam0 /tmp
 cp /app/live_index.html /app/live/index.html
 
-YAYIN="http://nexusconnects.org:80/play/live.php?mac=00:1B:79:47:72:00&stream=988851&extension=ts&play_token=i9P5KZaJhe"
+YAYIN="http://ekmek82.shop/live/adnan678/uBjabktvQP/1536246.m3u"
 
 echo "MIRTI68 CANLI YAYIN - LOGOLU 480p"
 
